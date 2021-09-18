@@ -51,7 +51,7 @@ describe('google test', () => {
       }
   
       expect(numberOfNonMatchedPixels).toBe(0)
-    })
+    }, 30000)
 
   }
 })
