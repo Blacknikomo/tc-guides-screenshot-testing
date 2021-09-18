@@ -26,7 +26,7 @@ const prepareFolders = async () => {
       width: 1920,
       height: 1400,
       x: 0,
-      y: 300,
+      y: 0,
     }});
   }
 
