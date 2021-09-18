@@ -18,7 +18,8 @@ describe('Screenshot testing: ', () => {
   
   for (let i = 0; i < pagesToCheck.length; i++) {
     const currentPage = pagesToCheck[i];
-    it(`${currentPage} page screenshots stay same`, async () => {
+    const testName = `${currentPage} page screenshots stay same`;
+    it(testName, async () => {
       await prepareFolders()
       
       const referenceImagePath = `${CONFIG.PATHS.screenshots}/${currentPage}-reference.png`;
@@ -50,8 +51,12 @@ describe('Screenshot testing: ', () => {
         await fsAsync.writeFile(diffImagePath, PNG.sync.write(diff));
       }
   
+      console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-reference.png']`)
+      console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-new.png']`)
+      console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-diff.png']`)
+      
       expect(numberOfNonMatchedPixels).toBe(0)
-    }, 30000)
+    }, 60000)
 
   }
 })
