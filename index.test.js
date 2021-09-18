@@ -5,7 +5,7 @@ const PNG = require("pngjs").PNG;
 
 const CONFIG = require("./config");
 
-describe('google test', () => {
+describe('Screenshot testing: ', () => {
   const prepareFolders = async () => {
     try {
       await fsAsync.access(CONFIG.PATHS.screenshots);
