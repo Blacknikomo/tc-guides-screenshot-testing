@@ -51,11 +51,11 @@ describe('Screenshot testing: ', () => {
         await fsAsync.writeFile(diffImagePath, PNG.sync.write(diff));
       }
   
+      expect(numberOfNonMatchedPixels).toBe(0)
+
       console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-reference.png']`)
       console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-new.png']`)
       console.log(`##teamcity[testMetadata testName='${testName}' type='image' value='${currentPage}-diff.png']`)
-      
-      expect(numberOfNonMatchedPixels).toBe(0)
     }, 60000)
 
   }
