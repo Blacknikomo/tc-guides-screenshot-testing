@@ -45,7 +45,6 @@ changeBuildType(RelativeId("ScreenshotTesting")) {
         }
         update<ScriptBuildStep>(2) {
             clearConditions()
-            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
             dockerImage = "node:lts"
         }
     }
